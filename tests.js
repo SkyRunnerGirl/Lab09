@@ -61,4 +61,144 @@ describe('JS6 Lab Tests:', () => {
     })
   })
   /*--------------------------NEW TESTS BELOW-------------------------------*/
-})
+
+  describe('1a TEST: Sorted array of numbers:', () => {
+    it('#Should sort an array in ascending order', () => {
+      let arrayOfNumbers = [1, 5, 3, 2, 4]
+      arrayOfNumbers = arrayOfNumbers.sort((a, b) => a - b);
+      
+      expect(arrayOfNumbers).to.deep.equal([1, 2, 3, 4, 5]);
+    })
+  })
+
+  describe('1b TEST: Manage my wallet', () => {
+    class Wallet {
+        constructor(startingMoney) {
+          this.money = startingMoney
+        }
+
+        addMoney(amount) {
+          this.money += amount;
+        }
+
+        removeMoney(amount) {
+          this.money -= amount;
+        }
+      }
+
+    it('#Should add money to my wallet', () => {
+      let myWallet = new Wallet(10);
+      myWallet.addMoney(5);
+      expect(myWallet.money).to.equal(15);
+    })
+
+    it('#Should remove money from my wallet', () => {
+      let myWallet = new Wallet(10);
+      myWallet.removeMoney(5);
+      expect(myWallet.money).to.equal(5);
+
+      myWallet.removeMoney(2.5);
+      expect(myWallet.money).to.equal(2.5);
+    })
+  })
+
+  describe('1c TEST: Day of the Week', () => {
+    const dayOfTheWeek = (num) => {
+      switch (num) {
+        case 1:
+          return'Monday';
+          break;
+        case 2:
+          return'Tuesday';
+          break;
+        case 3:
+          return'Wednesday';
+          break;
+        case 4:
+          return'Thursday';
+          break;
+        case 5:
+          return'Friday';
+          break;
+        case 6:
+          return'Saturday';
+          break;
+        case 7:
+          return'Sunday';
+          break;
+        default:
+          return 'Err. Something went wrong.';
+      }
+    }
+    it('#Should return Monday with input 1', () => {
+      expect(dayOfTheWeek(1)).to.equal('Monday');
+    })
+
+    it('#Should return Sunday with input 7', () => {
+      expect(dayOfTheWeek(7)).to.equal('Sunday');
+    })
+
+    it('#Should return error message with wrong input', () => {
+      expect(dayOfTheWeek(9)).to.equal('Err. Something went wrong.');
+    })
+  })
+
+  describe('1d TEST: Only wizards shall pass!', () => {
+    const movieCharacters = [
+      {
+        name: 'Howl',
+        isAWizard: true,
+        quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+      },
+      {
+        name: 'Kalcifer',
+        isAWizard: false,
+        quote: `I don't cook! I'm a scary and powerful fire demon!`,
+      },
+      {
+        name: 'Gandalf',
+        isAWizard: true,
+        quote: `You shall not pass!`,
+      },
+      {
+        name: 'Luke Skywalker',
+        isAWizard: false,
+        quote: `May the Force be with you.`,
+      },
+      {
+        name: 'Rebecca',
+        isAWizard: true,
+        quote: 'I can do hard things!',
+      }
+    ]
+
+    function onlyWizards(arrayOfCharacters) {
+      return arrayOfCharacters.filter((character) => character.isAWizard === true)
+    }
+
+    it('#Should return an array of objects... object.isAWizard should be true', () => {
+      expect(onlyWizards(movieCharacters)).to.deep.equal([{
+        name: 'Howl',
+        isAWizard: true,
+        quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+      },
+      {
+        name: 'Gandalf',
+        isAWizard: true,
+        quote: `You shall not pass!`,
+      },
+      {
+        name: 'Rebecca',
+        isAWizard: true,
+        quote: 'I can do hard things!',
+      }
+    ])
+    })
+
+    for (let character of onlyWizards(movieCharacters)) {
+      it('#Character should be a wizard', () => {
+        expect(character.isAWizard).to.equal(true);
+      })
+    }
+  })
+})//Needs to be last line; associated with describe('JS6 Lab Test:'

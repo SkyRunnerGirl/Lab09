@@ -108,33 +108,34 @@ console.log(`1c: Day of the Week`)
 const dayOfTheWeek = (num) => {
   switch (num) {
     case 1:
-      console.log('Monday');
+      return'Monday';
       break;
     case 2:
-      console.log('Tuesday');
+      return'Tuesday';
       break;
     case 3:
-      console.log('Wednesday');
+      return'Wednesday';
       break;
     case 4:
-      console.log('Thursday');
+      return'Thursday';
       break;
     case 5:
-      console.log('Friday');
+      return'Friday';
       break;
     case 6:
-      console.log('Saturday');
+      return'Saturday';
       break;
     case 7:
-      console.log('Sunday');
+      return'Sunday';
       break;
     default:
       console.log('Err. Something went wrong.');
   }
 }
-// RM: Added console.log() to each day expression and added 'break;' to kick out when done.
+// RM: Added return to each day expression and added 'break;' to kick out when done.
 
 console.log(dayOfTheWeek(5)); // should log Friday
+
 /*----------------------------------------------------*/
 console.log(`1d: Only wizards shall pass!`)
 
@@ -162,8 +163,8 @@ const movieCharacters = [
 ]
 
 function onlyWizards(arrayOfCharacters) {
-  return arrayOfCharacters.filter((character) => character.isAWizard === true)          // RM: added '.isAWizard' to ensure the correct property of each Object was checked
-                                                                                        // RM: also added an '=' to make it '===' instead of '=='
+  return arrayOfCharacters.filter((character) => character.isAWizard === true)
+  // RM: added '.isAWizard' to ensure the correct property of each Object was checked; also added an '=' to make it '===' instead of '=='
 }
 
 //check out the console.table() method you can use on objects!
